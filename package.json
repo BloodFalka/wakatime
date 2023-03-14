@@ -1,0 +1,25 @@
+{
+  "name": "wakatime-cli",
+  "version": "1.0.0",
+  "description": "Cli app for wakatime",
+  "main": "bin/app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon ."
+  },
+  "bin": {
+    "wakatime": "./bin/app.js"
+  },
+  "author": "bldf",
+  "license": "ISC",
+  "dependencies": {
+    "boxen": "^7.0.2",
+    "chalk": "^5.2.0",
+    "inquirer": "^9.1.4",
+    "wakatime-client": "^2.7.0",
+    "yargs": "^17.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}

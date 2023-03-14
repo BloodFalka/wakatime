@@ -101,23 +101,26 @@ class WakaTime {
         const { cumulative_total, daily_average, start, end, data } =
           summary || {};
 
-        console.log(summary);
+        console.log();
 
+        // Show title (dates range)
         console.log(
           chalk.magenta(
             `${new Date(start).toLocaleDateString("ua-UK")} - ${new Date(
               end
-            ).toLocaleDateString("ua-UK")} Summary`
+            ).toLocaleDateString("ua-UK")} Summary (${data?.length} days)`
           )
         );
 
-        console.log();
-
+        // Show Total Time
         if (cumulative_total?.text)
           console.log(`${chalk.cyan("Total:")} ${cumulative_total.text}`);
 
+        // Show Daily Average Time
         if (daily_average?.text)
           console.log(`${chalk.cyan("Daily Average:")} ${daily_average.text}`);
+
+        console.log();
 
         // Prompt user if they want to see data by days
         const { showByDays } = await inquirer.prompt({
@@ -127,6 +130,7 @@ class WakaTime {
           default: false,
         });
 
+        // Prompt user if they want to see data by projects
         if (showByDays) {
           const { showByProjects } = await inquirer.prompt({
             type: "confirm",
